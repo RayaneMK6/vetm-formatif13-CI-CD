@@ -35,6 +35,12 @@ jobs:
     - name: Vérifier version Maven
       run: mvn -version
 
+    - name: Lint (formatage du code)
+      run: |
+        mvn -B formatter:format --file pom.xml
+        mvn -B formatter:validate --file pom.xml
+
+
     - name: Compiler le projet
       run: mvn -B compile --file pom.xml
 
